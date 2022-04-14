@@ -64,10 +64,13 @@
                         <a class="nav-link" href="/user/register">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/search">Tenant Search</a>
+                        <a class="nav-link" href="/user/search">Search</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/user/create">Apartment Creator</a>
+                        <a class="nav-link active" href="/user/create">Create</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/assignments">Assign</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/logout">Sign Out</a>

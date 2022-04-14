@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="d" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +26,9 @@
     />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="<c:url value="/resources/mytheme/CSS/style.css"/>" rel="stylesheet" type="text/css"/>
+    <link type="text/javascript" href="script.js">
 </head>
+
 <body>
 <header>
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
@@ -48,29 +49,28 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/index"
-                        >Home</a>
+                        <a class="nav-link" aria-current="page" href="/index">Home</a>
                     </li>
-<%--                     <li class="nav-item">--%>
-<%--                      <a class="nav-link" href="about.html">About</a>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                      <a class="nav-link" href="floorplans.html">Floor Plans</a>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                      <a class="nav-link active" href="agents.html">Agents</a>--%>
-<%--                    </li>--%>
+                    <%--                    <li class="nav-item">--%>
+                    <%--                        <a class="nav-link" href="/user/about">About</a>--%>
+                    <%--                    </li>--%>
+                    <%--                    <li class="nav-item">--%>
+                    <%--                        <a class="nav-link" href="/user/floorplansl">Floor Plans</a>--%>
+                    <%--                    </li>--%>
+                    <%--                    <li class="nav-item">--%>
+                    <%--                        <a class="nav-link" href="/user/agents">Agents</a>--%>
+                    <%--                    </li>--%>
                     <li class="nav-item">
-                      <a class="nav-link" href="/user/register">Register</a>
+                        <a class="nav-link" href="/user/register">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/user/search">Search</a>
+                        <a class="nav-link" href="/user/search">Search</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/create">Create</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/assignments">Assign</a>
+                        <a class="nav-link active" href="/user/assignments">Assign</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/logout">Sign Out</a>
@@ -80,68 +80,9 @@
         </div>
     </nav>
 </header>
-<div id="search-container" class="container">
-<h1>Tenant Search</h1>
-
-<form action="/user/search" method="get">
-    First Name  <input type="text" name="firstName" id="firstNameId" value="${firstName}">
-    <button type="submit" class="btn btn-primary">Search</button>
-</form>
-<br>
-<table class="table">
-    <tr scope="row">
-        <th>Email</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Options</th>
-    </tr>
-
-    <d:forEach items = "${usersModelKey}" var = "tenant">
-        <tr scope="row">
-            <td>${tenant.email}</td>
-            <td>${tenant.firstName}</td>
-            <td>${tenant.lastName}</td>
-            <td>Select</td>
-
-        </tr>
-
-    </d:forEach>
-</table>
-</div>
-<br>
-<div id="apartmentSearch-container" class="container">
-    <h1>Apartment Search</h1>
-
-    <form action="/user/search2" method="get">
-        Floor Plan  <input type="text" name="floorPlan" id="apartmentId" value="${floorPlan}">
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
-    <br>
-    <table class="table">
-        <tr scope="row">
-            <th>Apartment Id</th>
-            <th>Status</th>
-            <th>Floor Plan</th>
-            <th>Bathrooms</th>
-            <th>Bedrooms</th>
-            <th>Rent</th>
-            <th>Square Feet</th>
-        </tr>
-
-        <d:forEach items = "${apartmentsModelKey}" var = "apartment">
-            <tr scope="row">
-                <td>${apartment.id}</td>
-                <td>${apartment.status}</td>
-                <td>${apartment.floorPlan}</td>
-                <td>${apartment.baths}</td>
-                <td>${apartment.beds}</td>
-                <td>${apartment.rent}</td>
-                <td>${apartment.squareFeet}</td>
-<%--                <td>Select</td>--%>
-
-            </tr>
-
-        </d:forEach>
-    </table>
-</div>
 </body>
+<footer>
+
+
+</footer>
+</html>
