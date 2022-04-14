@@ -20,10 +20,10 @@ public class Apartment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
-    private Integer id;
+    private Long id;
 
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "apartment")
-    private Set<Assignments> assignments = new HashSet<>();
+    private List<Assignments> assignments;
 
     @Column(name = "status", nullable = true, unique = false)
     private String status;

@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface ApartmentDAO extends JpaRepository<Apartment, Long> {
 
-    Apartment findApartmentById(@Param("id") Integer id);
+    Apartment findApartmentById(@Param("id") Long id);
 
     List<Apartment> findApartmentByFloorPlan(@Param("floorPlan") String floorPlan);
 }

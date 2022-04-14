@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="d" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,6 +94,11 @@
                 placeholder="first name"
                 value="${form.firstName}"
         />
+        <d:forEach items="${bindingResult.getFieldErrors('firstName')}" var="error">
+            <div style="color: black;">
+                    ${error.getDefaultMessage()}
+            </div>
+        </d:forEach>
     </div>
     <div class="mb-3">
         <label for="LastName" class="form-label">Last Name:</label>
@@ -104,6 +110,11 @@
                 placeholder="last name"
                 value="${form.lastName}"
         />
+        <d:forEach items="${bindingResult.getFieldErrors('lastName')}" var="error">
+            <div style="color: black;">
+                    ${error.getDefaultMessage()}
+            </div>
+        </d:forEach>
     </div>
     <div class="mb-3">
         <label for="EmailAddress" class="form-label">Email address:</label>
@@ -115,6 +126,11 @@
                 placeholder="name@example.com"
                 value="${form.email}"
         />
+        <d:forEach items="${bindingResult.getFieldErrors('email')}" var="error">
+            <div style="color: black;">
+                    ${error.getDefaultMessage()}
+            </div>
+        </d:forEach>
     </div>
     <div class="mb-3">
         <label for="contactNumber" class="form-label">Contact Number:</label>
@@ -126,6 +142,11 @@
                 placeholder="phone number"
                 value="${form.contactNumber}"
         />
+        <d:forEach items="${bindingResult.getFieldErrors('contactNumber')}" var="error">
+            <div style="color: black;">
+                    ${error.getDefaultMessage()}
+            </div>
+        </d:forEach>
     </div>
     <div class="mb-3">
         <label for="Password" class="form-label">Password:</label>
@@ -137,6 +158,11 @@
                 placeholder="password"
                 value="${form.password}"
         />
+        <d:forEach items="${bindingResult.getFieldErrors('password')}" var="error">
+            <div style="color: black;">
+                    ${error.getDefaultMessage()}
+            </div>
+        </d:forEach>
     </div>
     <div class="mb-3">
         <label for="ConfirmPassword" class="form-label">Confirm password:</label>
@@ -148,6 +174,11 @@
                 placeholder="confirm password"
                 value="${form.confirmPassword}"
         />
+        <d:forEach items="${bindingResult.getFieldErrors('confirmPassword')}" var="error">
+            <div style="color: black;">
+                    ${error.getDefaultMessage()}
+            </div>
+        </d:forEach>
     </div>
 
     <button type="submit" class="btn btn-primary" id="sButton">Register Tenant</button>

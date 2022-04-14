@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="d" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,6 +81,44 @@
         </div>
     </nav>
 </header>
+<div class="container">
+<form id="signin-form" action="/user/assignmentsSubmit" method="post">
+    <div class="mb-3">
+        <label for="t_id" class="form-label">Tenant Id:</label>
+        <input
+                type="text"
+                class="form-control"
+                name="t_id"
+                placeholder="Tenant"
+                value="${form.t_id}"
+        />
+        <d:forEach items="${bindingResult.getFieldErrors('t_id')}" var="error">
+            <div style="color: black;">
+                    ${error.getDefaultMessage()}
+            </div>
+        </d:forEach>
+    </div>
+        <div class="mb-3">
+            <label for="a_id" class="form-label">Apartment Id:</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    name="a_id"
+                    placeholder="Apartment"
+                    value="${form.a_id}"
+            />
+            <d:forEach items="${bindingResult.getFieldErrors('a_id')}" var="error">
+                <div style="color: black;">
+                        ${error.getDefaultMessage()}
+                </div>
+            </d:forEach>
+        </div>
+<br>
+        <button type="submit" class="btn btn-primary" id="sButton">Assign</button>
+
+</form>
+
+</div>
 </body>
 <footer>
 

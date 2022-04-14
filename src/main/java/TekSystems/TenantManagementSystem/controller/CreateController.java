@@ -29,7 +29,7 @@ public class CreateController {
     private ApartmentDAO apartmentDAO;
 
     @RequestMapping(value = "/user/create", method = RequestMethod.GET)
-    public ModelAndView index(@RequestParam(required = false) Integer id) throws Exception {
+    public ModelAndView index(@RequestParam(required = false) Long id) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/create");
 

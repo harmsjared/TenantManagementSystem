@@ -3,9 +3,7 @@ package TekSystems.TenantManagementSystem.database.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 @Setter
@@ -25,7 +23,7 @@ public class Tenant {
     private Long id;
 
     @OneToMany( mappedBy = "tenant" )
-    private Set<Assignments> assignments = new HashSet<>();
+    private List<Assignments> assignments;
 
     @Column(name = "first", nullable = false, unique = false)
     private String firstName;

@@ -12,7 +12,7 @@ public class CreateFormBean {
 
     // the below variables are used to create a new apartment on the /user/create page
 
-    private Integer id;
+    private Long id;
 
     @NotBlank(message = "Rental status is required.")
     private String status;

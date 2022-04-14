@@ -12,7 +12,7 @@ public interface TenantDAO extends JpaRepository<Tenant, Long> {
 
     Tenant findTenantById(@Param("id")Long id);
 
-    Tenant findByEmail(@Param("email")String email);
+    Tenant deleteTenantByFirstName(@Param("first")String first);
 
     List<Tenant> findByFirstName(@Param("first") String first);
 }

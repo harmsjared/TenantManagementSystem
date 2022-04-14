@@ -72,7 +72,7 @@ public class RegisterController {
             // add the error list to the model
             // response.addObject("formErrors", errors);
 
-//            response.addObject("bindingResult", bindingResult);
+            response.addObject("bindingResult", bindingResult);
 
             // because there is 1 or more errors we do not want to process the logic below
             // that will create a new user in the database. We want to show the register.jsp
