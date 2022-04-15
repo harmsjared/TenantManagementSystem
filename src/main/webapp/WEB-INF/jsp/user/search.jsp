@@ -90,6 +90,7 @@
 <br>
 <table class="table">
     <tr scope="row">
+        <th>Tenant Id</th>
         <th>Email</th>
         <th>First Name</th>
         <th>Last Name</th>
@@ -98,6 +99,7 @@
 
     <d:forEach items = "${usersModelKey}" var = "tenant">
         <tr scope="row">
+            <td>${tenant.id}</td>
             <td>${tenant.email}</td>
             <td>${tenant.firstName}</td>
             <td>${tenant.lastName}</td>
@@ -113,7 +115,7 @@
     <h1>Apartment Search</h1>
 
     <form action="/user/search2" method="get">
-        Floor Plan  <input type="text" name="floorPlan" id="apartmentId" value="${floorPlan}">
+        Floor Plan  <input type="text" name="floorPlan" id="floorPlan" value="${floorPlan}">
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
     <br>
@@ -143,5 +145,16 @@
 
         </d:forEach>
     </table>
+</div>
+<br>
+<div id="delete-container" class="container">
+    <h1>Delete Tenant</h1>
+
+    <form action="/user/delete" method="get" >
+        Tenant Id  <input type="text" name="id" id="tenantId" value="${id}">
+        <button type="submit" class="btn btn-primary">Delete</button>
+
+
+    </form>
 </div>
 </body>

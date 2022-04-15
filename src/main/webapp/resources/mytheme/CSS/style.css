@@ -398,3 +398,13 @@ select {
     background-color: lightgoldenrodyellow;
     border: 2px solid black;
 }
+
+#delete-container {
+    color: black;
+    background-color: hsla(233, 40%, 70%, 0.753);
+    border: 3px solid black;
+    border-radius: 5px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 24px;
+    letter-spacing: 1px;
+}

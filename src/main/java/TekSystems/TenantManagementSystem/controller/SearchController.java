@@ -4,6 +4,8 @@ import TekSystems.TenantManagementSystem.database.dao.ApartmentDAO;
 import TekSystems.TenantManagementSystem.database.dao.TenantDAO;
 import TekSystems.TenantManagementSystem.database.entity.Apartment;
 import TekSystems.TenantManagementSystem.database.entity.Tenant;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,16 +31,16 @@ public class SearchController {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/search");
 
-        List<Tenant> tenants = null;
+        List<Tenant> tenant = null;
 
         if (!firstName.isEmpty()) {
             String search = firstName;
-            tenants = tenantDAO.findByFirstName(search);
+            tenant = tenantDAO.findByFirstName(search);
             log.info(firstName);
         }
 
 
-        response.addObject("usersModelKey", tenants);
+        response.addObject("usersModelKey", tenant);
         response.addObject("firstName", firstName);
 
         return response;
@@ -66,6 +68,20 @@ public class SearchController {
         return response;
     }
 
+    @Transactional
+    @GetMapping("/user/delete")
+    public ModelAndView delete(@RequestParam(required = false, defaultValue = " ") Long id) throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("user/search");
+
+        tenantDAO.deleteTenantById(id);
+
+//        response.addObject();
+//        response.addObject();
+
+
+        return response;
+    }
 
 
 }
