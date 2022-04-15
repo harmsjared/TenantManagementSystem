@@ -75,7 +75,7 @@
     <div class="row">
         <div id="homepage" class="col-sm-4">
             <div id="card-main" class="card-transparent">
-                <img class="card-img-top" src="<c:url value="/resources/mytheme/images/happyhomesavengerteamlogo.png"/>" alt="..."/>
+                <img class="card-img-top" src="<c:url value="/resources/mytheme/images/undraw_shared_goals_re_jvqd.svg"/>" alt="..."/>
                 <div class="card-body">
                     <p class="card-text">
                         At Happy Homes we use our literal superpowers to make your living experience affordable, enjoyable, and uplifting. That's the Happy Homes promise.
@@ -87,13 +87,13 @@
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://www.colesclassroom.com/wp-content/uploads/2020/08/pexels-egil-sj%C3%B8holt-1906667.jpg" class="d-block w-100" alt="...">
+                        <img src="https://www.southwestjournal.com/wp-content/uploads/2020/06/Nicollet-scaled.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://www.colesclassroom.com/wp-content/uploads/2020/08/pexels-egil-sj%C3%B8holt-1906667.jpg" class="d-block w-100" alt="...">
+                        <img src="https://www.treehugger.com/thmb/yJMEhqi4Y4bQcZxF8cbpxTLg9to=/2000x1333/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__treehugger__images__2018__12__pax-futura-vivian-hsu-01-22d54f9aed2e4b07a5ae22ece5de55dd.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://www.colesclassroom.com/wp-content/uploads/2020/08/pexels-egil-sj%C3%B8holt-1906667.jpg" class="d-block w-100" alt="...">
+                        <img src="https://www.thekickassentrepreneur.com/wp-content/uploads/2019/06/Apartment-Buildings.jpg" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

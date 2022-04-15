@@ -75,7 +75,7 @@
 </header>
 <div id="about" class="container">
     <div class="row">
-        <div id="ceo" class="col-lg-6"><img src="<c:url value="/resources/mytheme/images/stanleyleeceo.com.jpg"/>" /></div>
+        <div id="ceo" class="col-lg-6"><img src="<c:url value="/resources/mytheme/images/undraw_connecting_teams_re_hno7.svg"/>" /></div>
         <div id="about1" class="col-lg-6">
             <p>
                 <br>

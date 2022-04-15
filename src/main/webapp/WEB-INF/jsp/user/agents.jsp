@@ -81,6 +81,8 @@
         </div>
     </nav>
 </header>
+<div id="search-container" class="container">
+    <h1> Available Agents </h1>
 <table class="table">
     <thead>
     <tr>
@@ -96,6 +98,7 @@
     <!-- auto generated rows and data from api -->
     </tbody>
 </table>
+</div>
 <footer></footer>
 
 

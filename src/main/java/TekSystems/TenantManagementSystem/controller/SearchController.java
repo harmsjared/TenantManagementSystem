@@ -39,7 +39,6 @@ public class SearchController {
             log.info(firstName);
         }
 
-
         response.addObject("usersModelKey", tenant);
         response.addObject("firstName", firstName);
 
