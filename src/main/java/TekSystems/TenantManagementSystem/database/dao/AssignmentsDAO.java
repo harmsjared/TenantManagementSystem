@@ -1,12 +1,12 @@
 package TekSystems.TenantManagementSystem.database.dao;
 
-import TekSystems.TenantManagementSystem.database.entity.Assignments;
+import TekSystems.TenantManagementSystem.database.entity.Assignment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 
-public interface AssignmentsDAO extends JpaRepository<Assignments, Long> {
+public interface AssignmentsDAO extends JpaRepository<Assignment, Long> {
 
 
-    public Assignments findById(@Param("id")Integer id);
+    public Assignment findById(@Param("id")Integer id);
 
 }

@@ -3,10 +3,9 @@ package TekSystems.TenantManagementSystem.controller;
 import TekSystems.TenantManagementSystem.database.dao.ApartmentDAO;
 import TekSystems.TenantManagementSystem.database.dao.AssignmentsDAO;
 import TekSystems.TenantManagementSystem.database.dao.TenantDAO;
-import TekSystems.TenantManagementSystem.database.entity.Assignments;
+import TekSystems.TenantManagementSystem.database.entity.Assignment;
 import TekSystems.TenantManagementSystem.formbean.AssignmentsFormBean;
 import lombok.extern.slf4j.Slf4j;
-import org.eclipse.jdt.internal.compiler.ast.Assignment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -35,45 +34,47 @@ public class AssignmentsController {
     @Autowired
     private AssignmentsDAO assignmentsDAO;
 
-    @RequestMapping(value = "/user/assignments", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/assignment", method = RequestMethod.GET)
     public ModelAndView index() throws Exception {
         ModelAndView response = new ModelAndView();
 
-        response.setViewName("user/assignments");
+        response.setViewName("user/assignment");
 
         return response;
     }
 
-    @PostMapping("/user/assignmentsSubmit")
+    @PostMapping("/user/assignmentSubmit")
     public ModelAndView assign(@RequestParam Long t_id, @RequestParam Long a_id, @Valid AssignmentsFormBean form, BindingResult bindingResult) throws Exception {
         ModelAndView response = new ModelAndView();
 
-        Assignments assignments = new Assignments();
-        assignments.setApartment(apartmentDAO.getById(a_id));
-        assignments.setTenant(tenantDAO.getById(t_id));
-        assignmentsDAO.save(assignments);
+        try {
 
-        if (bindingResult.hasErrors() ) {
-            // Hashmap errors = new HashMap();
+            Assignment assignment = new Assignment();
+            assignment.setApartment(apartmentDAO.getById(a_id));
+            assignment.setTenant(tenantDAO.getById(t_id));
+            assignmentsDAO.save(assignment);
 
-            List<String> errorMessages = new ArrayList<>();
+            if (bindingResult.hasErrors()) {
 
-            for (ObjectError error : bindingResult.getAllErrors()) {
-                //errors.put( ((FieldError) error).getField(), error.getDefaultMessage());
-                errorMessages.add(error.getDefaultMessage());
-                log.info(((FieldError) error).getField() + " " + error.getDefaultMessage());
+                List<String> errorMessages = new ArrayList<>();
+
+                for (ObjectError error : bindingResult.getAllErrors()) {
+                    errorMessages.add(error.getDefaultMessage());
+                    log.info(((FieldError) error).getField() + " " + error.getDefaultMessage());
+                }
+
+
+                response.addObject("form", form);
+                // add the error list to the model
+                response.addObject("bindingResult", bindingResult);
             }
 
+            response.setViewName("redirect:/user/assignment");
+            return response;
 
-            response.addObject("form", form);
-            // add the error list to the model
-            // response.addObject("formErrors", errors);
-
-            response.addObject("bindingResult", bindingResult);
-
+        } catch (Exception e) {
+            System.out.println("Assignment was unable to be executed.");
+            return response;
         }
-
-        response.setViewName("redirect:/user/assignments");
-        return response;
     }
 }

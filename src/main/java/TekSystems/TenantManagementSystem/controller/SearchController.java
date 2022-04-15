@@ -32,17 +32,23 @@ public class SearchController {
         response.setViewName("user/search");
 
         List<Tenant> tenant = null;
+        try {
 
-        if (!firstName.isEmpty()) {
-            String search = firstName;
-            tenant = tenantDAO.findByFirstName(search);
-            log.info(firstName);
+            if (!firstName.isEmpty()) {
+                String search = firstName;
+                tenant = tenantDAO.findByFirstName(search);
+                log.info(firstName);
+            }
+
+            response.addObject("usersModelKey", tenant);
+            response.addObject("firstName", firstName);
+
+            return response;
+
+        } catch (Exception e) {
+            System.out.println("Please enter a tenant's first name.");
+            return response;
         }
-
-        response.addObject("usersModelKey", tenant);
-        response.addObject("firstName", firstName);
-
-        return response;
     }
 
     @Autowired
@@ -55,16 +61,22 @@ public class SearchController {
 
         List<Apartment> apartments = null;
 
-        if (!floorPlan.isEmpty()) {
-            String bologna = floorPlan;
-            apartments = apartmentDAO.findApartmentByFloorPlan(bologna);
-            log.info(floorPlan);
+        try {
+
+            if (!floorPlan.isEmpty()) {
+                String bologna = floorPlan;
+                apartments = apartmentDAO.findApartmentByFloorPlan(bologna);
+                log.info(floorPlan);
+            }
+
+            response.addObject("apartmentsModelKey", apartments);
+            response.addObject("floorPlan", floorPlan);
+
+            return response;
+        } catch (Exception e) {
+            System.out.println("Please specify a valid floor plan.");
+            return response;
         }
-
-        response.addObject("apartmentsModelKey", apartments);
-        response.addObject("floorPlan", floorPlan);
-
-        return response;
     }
 
     @Transactional
@@ -73,13 +85,19 @@ public class SearchController {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/search");
 
-        tenantDAO.deleteTenantById(id);
+        try {
 
-//        response.addObject();
-//        response.addObject();
+            if (!tenantDAO.existsById(id) ) {
+                log.info("Tenant does not exist."); }
 
+            tenantDAO.deleteTenantById(id);
 
-        return response;
+            return response;
+
+        } catch (Exception e) {
+            System.out.println("Please enter a valid tenant id.");
+            return response;
+        }
     }
 
 

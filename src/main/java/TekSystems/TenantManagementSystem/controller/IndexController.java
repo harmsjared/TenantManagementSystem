@@ -21,13 +21,6 @@ public class IndexController {
     public ModelAndView index() throws Exception {
         ModelAndView response = new ModelAndView();
 
-//        List<Tenant> tenants  = userDAO.findByFirstName("JaredV");
-//
-//
-//        for (Tenant tenant : tenants) {
-//            log.info(tenant.toString());
-//        }
-
         response.setViewName("index");
 
         return response;

@@ -33,29 +33,36 @@ public class CreateController {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/create");
 
-        CreateFormBean form = new CreateFormBean();
-        Apartment newApartment = apartmentDAO.findApartmentById(id);
-        if (newApartment != null) {
+        try {
 
-            form.setStatus(newApartment.getStatus());
-            form.setFloorPlan(newApartment.getFloorPlan());
-            form.setBaths(newApartment.getBaths());
-            form.setBeds(newApartment.getBeds());
-            form.setRent(newApartment.getRent());
-            form.setSquareFeet(newApartment.getSquareFeet());
-            form.setId(newApartment.getId());
+            CreateFormBean form = new CreateFormBean();
+            Apartment newApartment = apartmentDAO.findApartmentById(id);
+            if (newApartment != null) {
 
+                form.setStatus(newApartment.getStatus());
+                form.setFloorPlan(newApartment.getFloorPlan());
+                form.setBaths(newApartment.getBaths());
+                form.setBeds(newApartment.getBeds());
+                form.setRent(newApartment.getRent());
+                form.setSquareFeet(newApartment.getSquareFeet());
+                form.setId(newApartment.getId());
+
+            }
+            response.addObject("form", form);
+
+            return response;
+        } catch (Exception e) {
+            System.out.println("New apartment could not be created.");
+            e.printStackTrace();
+            return response;
         }
-        response.addObject("form", form);
-
-        return response;
     }
 
     @RequestMapping(value = "/user/createSubmit", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView createSubmit(@Valid CreateFormBean form, BindingResult bindingResult) throws Exception {
         ModelAndView response = new ModelAndView();
 
-//        int i = 10/0;
+
 
         if (bindingResult.hasErrors() ) {
             // Hashmap errors = new HashMap();
@@ -91,28 +98,37 @@ public class CreateController {
 //            // find the user. Therefore, it is a create.
 //            tenant = new Tenant();
 //        }
-        Apartment apartment = new Apartment();
-        apartment.setStatus(form.getStatus());
-        apartment.setFloorPlan(form.getFloorPlan());
-        apartment.setBaths(form.getBaths());
-        apartment.setBeds(form.getBeds());
-        apartment.setRent(form.getRent());
-        apartment.setSquareFeet(form.getSquareFeet());
-        apartment.setCreateDate(new Date());     //could be update date as well!!
+
+        try {
+
+            Apartment apartment = new Apartment();
+            apartment.setStatus(form.getStatus());
+            apartment.setFloorPlan(form.getFloorPlan());
+            apartment.setBaths(form.getBaths());
+            apartment.setBeds(form.getBeds());
+            apartment.setRent(form.getRent());
+            apartment.setSquareFeet(form.getSquareFeet());
+            apartment.setCreateDate(new Date());     //could be update date as well!!
 
 
-        Apartment newApartment = apartmentDAO.save(apartment);
+            Apartment newApartment = apartmentDAO.save(apartment);
 
-        log.info(form.toString());
+            log.info(form.toString());
 
-        // here instead of showing a view, we want to redirect to the edit page'
-        // the edit page will then be responsible for loading the user fom the
-        // database and dynamically creating the page
-        // when you use redirect: as part of the view name, it triggers spring to tell the
-        // browser to do a redirect to the URL after the :
-        // redirect: uses an actual URL rather than a view name path
-        response.setViewName("redirect:/user/create?id=" + newApartment.getId());
+            // here instead of showing a view, we want to redirect to the edit page'
+            // the edit page will then be responsible for loading the user fom the
+            // database and dynamically creating the page
+            // when you use redirect: as part of the view name, it triggers spring to tell the
+            // browser to do a redirect to the URL after the :
+            // redirect: uses an actual URL rather than a view name path
+            response.setViewName("redirect:/user/create?id=" + newApartment.getId());
 //        response.setViewName("redirect:/user/register/");
-        return response;
+            return response;
+
+        } catch (Exception e) {
+            System.out.println("New apartment could not be created.");
+            e.printStackTrace();
+            return response;
+        }
     }
 }

@@ -33,21 +33,26 @@ public class RegisterController {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/register");
 
-        RegisterFormBean form = new RegisterFormBean();
-        Tenant newTenant = tenantDAO.findTenantById(id);
-        if (newTenant != null) {
+        try {
+            RegisterFormBean form = new RegisterFormBean();
+            Tenant newTenant = tenantDAO.findTenantById(id);
+            if (newTenant != null) {
 
-            form.setEmail(newTenant.getEmail());
-            form.setPassword(newTenant.getPassword());
-            form.setFirstName(newTenant.getFirstName());
-            form.setContactNumber(newTenant.getContactNumber());
-            form.setLastName(newTenant.getLastName());
-            form.setId(newTenant.getId());
+                form.setEmail(newTenant.getEmail());
+                form.setPassword(newTenant.getPassword());
+                form.setFirstName(newTenant.getFirstName());
+                form.setContactNumber(newTenant.getContactNumber());
+                form.setLastName(newTenant.getLastName());
+                form.setId(newTenant.getId());
 
+            }
+            response.addObject("form", form);
+
+            return response;
+        } catch (Exception e) {
+            System.out.println("Tenant could not be registered.");
+            return response;
         }
-        response.addObject("form", form);
-
-        return response;
     }
 
     @RequestMapping(value = "/user/registerSubmit", method = {RequestMethod.POST, RequestMethod.GET})
@@ -90,27 +95,34 @@ public class RegisterController {
 //            // find the user. Therefore, it is a create.
 //            tenant = new Tenant();
 //        }
-        Tenant tenant = new Tenant();
-        tenant.setEmail(form.getEmail());
-        tenant.setFirstName(form.getFirstName());
-        tenant.setLastName(form.getLastName());
-        tenant.setPassword(form.getPassword());
-        tenant.setContactNumber(form.getContactNumber());
-        tenant.setCreateDate(new Date());     //could be update date as well!!
+
+        try {
+
+            Tenant tenant = new Tenant();
+            tenant.setEmail(form.getEmail());
+            tenant.setFirstName(form.getFirstName());
+            tenant.setLastName(form.getLastName());
+            tenant.setPassword(form.getPassword());
+            tenant.setContactNumber(form.getContactNumber());
+            tenant.setCreateDate(new Date());     //could be update date as well!!
 
 
-        Tenant newTenant = tenantDAO.save(tenant);
+            Tenant newTenant = tenantDAO.save(tenant);
 
-        log.info(form.toString());
+            log.info(form.toString());
 
-        // here instead of showing a view, we want to redirect to the edit page'
-        // the edit page will then be responsible for loading the user fom the
-        // database and dynamically creating the page
-        // when you use redirect: as part of the view name, it triggers spring to tell the
-        // browser to do a redirect to the URL after the :
-        // redirect: uses an actual URL rather than a view name path
-        response.setViewName("redirect:/user/register?id=" + newTenant.getId());
+            // here instead of showing a view, we want to redirect to the edit page'
+            // the edit page will then be responsible for loading the user fom the
+            // database and dynamically creating the page
+            // when you use redirect: as part of the view name, it triggers spring to tell the
+            // browser to do a redirect to the URL after the :
+            // redirect: uses an actual URL rather than a view name path
+            response.setViewName("redirect:/user/register?id=" + newTenant.getId());
 //        response.setViewName("redirect:/user/register/");
-        return response;
+            return response;
+        } catch (Exception e) {
+            System.out.println("Tenant could not be registered.");
+            return response;
+        }
     }
 }

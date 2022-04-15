@@ -70,7 +70,7 @@
                         <a class="nav-link" href="/user/create">Create</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/assignments">Assign</a>
+                        <a class="nav-link" href="/user/assignment">Assign</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/logout">Sign Out</a>
@@ -155,6 +155,6 @@
         <button type="submit" class="btn btn-primary">Delete</button>
 
 
-    </form>
+    </form><br>
 </div>
 </body>

@@ -69,7 +69,7 @@
                         <a class="nav-link" href="/user/create">Apartment Creator</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/assignments">Assign</a>
+                        <a class="nav-link" href="/user/assignment">Assign</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="/user/signin">Sign In</a>

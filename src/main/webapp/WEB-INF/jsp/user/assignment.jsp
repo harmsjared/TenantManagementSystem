@@ -71,7 +71,7 @@
                         <a class="nav-link" href="/user/create">Create</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/user/assignments">Assign</a>
+                        <a class="nav-link active" href="/user/assignment">Assign</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/logout">Sign Out</a>
@@ -82,9 +82,9 @@
     </nav>
 </header>
 <div class="container">
-<form id="signin-form" action="/user/assignmentsSubmit" method="post">
+<form id="signin-form" action="/user/assignmentSubmit" method="post">
     <div class="mb-3">
-        <label for="t_id" class="form-label">Tenant Id:</label>
+        <label  class="form-label">Tenant Id:</label>
         <input
                 type="text"
                 class="form-control"
@@ -99,7 +99,7 @@
         </d:forEach>
     </div>
         <div class="mb-3">
-            <label for="a_id" class="form-label">Apartment Id:</label>
+            <label  class="form-label">Apartment Id:</label>
             <input
                     type="text"
                     class="form-control"

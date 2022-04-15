@@ -22,8 +22,8 @@ public class Tenant {
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
-    @OneToMany( mappedBy = "tenant" )
-    private List<Assignments> assignments;
+    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "tenant" )
+    private List<Assignment> assignments;
 
     @Column(name = "first", nullable = false, unique = false)
     private String firstName;

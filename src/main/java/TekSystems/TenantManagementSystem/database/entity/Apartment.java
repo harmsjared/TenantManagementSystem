@@ -23,7 +23,7 @@ public class Apartment {
     private Long id;
 
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "apartment")
-    private List<Assignments> assignments;
+    private List<Assignment> assignments;
 
     @Column(name = "status", nullable = true, unique = false)
     private String status;
