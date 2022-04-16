@@ -48,49 +48,33 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/index">Home</a>
-                    </li>
-<%--                    <li class="nav-item">--%>
-<%--                        <a class="nav-link" href="/user/about">About</a>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <a class="nav-link" href="/user/floorplans">Floor Plans</a>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <a class="nav-link" href="/user/agents">Agents</a>--%>
-<%--                    </li>--%>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/user/register">Register</a>
+                        <a class="nav-link active" aria-current="page" href="/index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/search">Search</a>
+                        <a class="nav-link" href="/user/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/create">Create</a>
+                        <a class="nav-link" href="/user/floorplans">Floor Plans</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/assignment">Assign</a>
+                        <a class="nav-link" href="/user/agents">Agents</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/user/signin">Sign In</a>
+                        <a class="nav-link" href="/user/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/signin">Sign In</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<form id="signin-form" action="/user/signinSubmit" method="post">
-    <div class="mb-3">
-        <label class="form-label">Email address</label>
-        <input type="text" name="username" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input type="text" name="password" class="form-control">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Sign In</button>
-</form>
+<div id="error-page" class="container">
+    <h1> 404 </h1>
+    <h2> It seems the page you're looking for doesn't exist. </h2>
+    <h3> Let's take you <a style="color:black;" href="/index">home</a>.</h3>
+</div>
 <footer>
 
 </footer>

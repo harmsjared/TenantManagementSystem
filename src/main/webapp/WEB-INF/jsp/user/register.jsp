@@ -52,15 +52,6 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/index">Home</a>
                     </li>
-<%--                    <li class="nav-item">--%>
-<%--                        <a class="nav-link" href="/user/about">About</a>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <a class="nav-link" href="/user/floorplansl">Floor Plans</a>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <a class="nav-link" href="/user/agents">Agents</a>--%>
-<%--                    </li>--%>
                     <li class="nav-item">
                         <a class="nav-link active" href="/user/register">Register</a>
                     </li>

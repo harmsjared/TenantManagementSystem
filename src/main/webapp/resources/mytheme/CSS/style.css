@@ -410,3 +410,20 @@ select {
     font-size: 24px;
     letter-spacing: 1px;
 }
+
+#error-page {
+    width: 40vw;
+    display: block;
+    margin: 50px auto;
+    border: 3px solid black;
+    box-shadow: 2px 3px 5px yellow;
+    padding: 2em;
+    border-radius: 5px;
+    background-color: hsla(233, 40%, 70%, 0.753);
+    text-align: center;
+    color: black;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 24px;
+    letter-spacing: 1px;
+
+}
