@@ -3,7 +3,8 @@ package TekSystems.TenantManagementSystem.formbean;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -12,9 +13,9 @@ public class AssignmentsFormBean {
 
     private Integer id;
 
-    @NotBlank(message = "Tenant Id is required.")
-    private Long tenantId;
+    @NotNull(message = "Tenant Id is required.")
+    private Long t_id;
 
-    @NotBlank(message = "Apartment Id is required.")
-    private Long apartmentId;
+    @NotNull(message = "Apartment Id is required.")
+    private Long a_id;
 }

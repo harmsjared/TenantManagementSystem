@@ -46,7 +46,7 @@ public class AssignmentsController {
     @PostMapping("/user/assignmentSubmit")
     public ModelAndView assign(@RequestParam Long t_id, @RequestParam Long a_id, @Valid AssignmentsFormBean form, BindingResult bindingResult) throws Exception {
         ModelAndView response = new ModelAndView();
-
+        log.info(t_id + "" + a_id);
         try {
 
             Assignment assignment = new Assignment();
