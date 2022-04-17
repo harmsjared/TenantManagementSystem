@@ -18,12 +18,12 @@ public class Assignment {
     @Column(name = "id", nullable = false, unique = true)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "tenant_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tenant_id", nullable = false)
     private Tenant tenant;
 
-    @ManyToOne
-    @JoinColumn(name = "apartment_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "apartment_id", nullable = false)
     private Apartment apartment;
 
 

@@ -51,6 +51,23 @@ public class SearchController {
         }
     }
 
+    @GetMapping(value = "/user/searchAll")
+    public ModelAndView findAll() throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("user/search");
+
+        List<Tenant> tenant = null;
+
+        tenant = tenantDAO.findAll();
+
+        response.addObject("tenantModelKey", tenant);
+
+        return response;
+
+    }
+
+
+
     @Autowired
     private ApartmentDAO apartmentDAO;
 
