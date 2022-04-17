@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/user/signin", "/user/about", "/user/agents", "/index", "/user/floorplans", "/user/about", "/user/contact").permitAll()
                 // above are allowed
-                .antMatchers("/user/create", "/user/register", "/user/assignment", "/user/search").authenticated()
+                .antMatchers("/user/create", "/user/register", "/user/assignment", "/user/search", "/user/admin").authenticated()
                 // above must be authenticated
                 .and()
                 .formLogin()

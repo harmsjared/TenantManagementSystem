@@ -24,15 +24,6 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/index">Home</a>
                     </li>
-<%--                    <li class="nav-item">--%>
-<%--                        <a class="nav-link" href="/user/about">About</a>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <a class="nav-link" href="/user/floorplansl">Floor Plans</a>--%>
-<%--                    </li>--%>
-<%--                    <li class="nav-item">--%>
-<%--                        <a class="nav-link" href="/user/agents">Agents</a>--%>
-<%--                    </li>--%>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/register">Register</a>
                     </li>
@@ -44,6 +35,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/assignment">Assign</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/admin">Admin</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/logout">Sign Out</a>

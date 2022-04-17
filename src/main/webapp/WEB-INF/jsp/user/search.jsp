@@ -39,6 +39,9 @@
                         <a class="nav-link" href="/user/assignment">Assign</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/user/admin">Admin</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/user/logout">Sign Out</a>
                     </li>
                 </ul>
@@ -90,19 +93,19 @@
 <table class="table">
     <tr scope="row">
         <th>Tenant Id</th>
-        <th>Email</th>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Options</th>
+        <th>Email</th>
+        <th>Tel</th>
     </tr>
 
     <d:forEach items = "${usersModelKey}" var = "tenant">
         <tr scope="row">
             <td>${tenant.id}</td>
-            <td>${tenant.email}</td>
             <td>${tenant.firstName}</td>
             <td>${tenant.lastName}</td>
-            <td>Select</td>
+            <td>${tenant.email}</td>
+            <td>${tenant.contactNumber}</td>
 
         </tr>
 
@@ -157,3 +160,6 @@
     </form><br>
 </div>
 </body>
+<footer>
+
+</footer>

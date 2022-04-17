@@ -23,10 +23,11 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/index">Home</a>
+                        <a class="nav-link" aria-current="page" href="/index"
+                        >Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/user/register">Register</a>
+                        <a class="nav-link" href="/user/register">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/search">Search</a>
@@ -38,7 +39,7 @@
                         <a class="nav-link" href="/user/assignment">Assign</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/user/admin">Admin</a>
+                        <a class="nav-link active" href="/user/admin">Admin</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/logout">Sign Out</a>
@@ -48,8 +49,8 @@
         </div>
     </nav>
 </header>
-<form id="register-form" action="/user/registerSubmit" method="POST">
-    <h1> Register New Tenant </h1>
+<form id="register-form" action="/user/adminSubmit" method="POST">
+    <h1> Register New Admin </h1>
     <input type="hidden" name="id" value="${form.id}">
     <div class="mb-3">
         <label for="FirstName" class="form-label">First Name:</label>
@@ -148,13 +149,7 @@
         </d:forEach>
     </div>
 
-    <button type="submit" class="btn btn-primary" id="sButton">Register Tenant</button>
+    <button type="submit" class="btn btn-primary" id="sButton">Register Admin</button>
 </form>
-
-
-<footer>
-
-</footer>
-
 </body>
-</html>
+<footer></footer>
