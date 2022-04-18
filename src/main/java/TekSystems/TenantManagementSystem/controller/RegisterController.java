@@ -43,6 +43,7 @@ public class RegisterController {
                 form.setFirstName(newTenant.getFirstName());
                 form.setContactNumber(newTenant.getContactNumber());
                 form.setLastName(newTenant.getLastName());
+                form.setStatus(newTenant.getStatus());
                 form.setId(newTenant.getId());
 
             }
@@ -87,7 +88,7 @@ public class RegisterController {
 
         // first thing we want to do here is load the user from the database
         // using the incoming id on the form
-//        Tenant tenant = tenantDAO.findById(form.getId());
+//        Tenant tenant = tenantDAO.findTenantById(form.getId());
 //
 //        // if user is not null we know it is an edit
 //        if (tenant == null ) {
@@ -104,6 +105,7 @@ public class RegisterController {
             tenant.setLastName(form.getLastName());
             tenant.setPassword(form.getPassword());
             tenant.setContactNumber(form.getContactNumber());
+            tenant.setStatus(form.getStatus());
             tenant.setCreateDate(new Date());     //could be update date as well!!
 
 
@@ -118,6 +120,7 @@ public class RegisterController {
             // browser to do a redirect to the URL after the :
             // redirect: uses an actual URL rather than a view name path
             response.setViewName("redirect:/user/register?id=" + newTenant.getId());
+//            response.setViewName("redirect:/user/register" + newTenant.getId());
 //        response.setViewName("redirect:/user/register/");
             return response;
         } catch (Exception e) {

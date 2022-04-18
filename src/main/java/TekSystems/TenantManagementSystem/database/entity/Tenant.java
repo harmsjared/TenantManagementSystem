@@ -40,9 +40,10 @@ public class Tenant {
     @Column(name = "contact", nullable = false, unique = false)
     private String contactNumber;
 
+    @Column(name = "status", nullable=false, unique = false)
+    private String status;
+
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate = new Date();
-
-
 }

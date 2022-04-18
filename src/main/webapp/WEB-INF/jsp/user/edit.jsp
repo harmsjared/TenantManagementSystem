@@ -26,7 +26,7 @@
                         <a class="nav-link" aria-current="page" href="/index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/user/register">Register</a>
+                        <a class="nav-link" href="/user/register">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/search">Search</a>
@@ -48,8 +48,9 @@
         </div>
     </nav>
 </header>
-<form id="register-form" action="/user/registerSubmit" method="POST">
-    <h1> Register New Tenant </h1>
+
+<form id="register-form" action="/user/editSubmit/${userId}" method="post">
+    <h1> Edit Tenant Details </h1>
     <input type="hidden" name="id" value="${form.id}">
     <div class="mb-3">
         <label for="FirstName" class="form-label">First Name:</label>
@@ -149,14 +150,17 @@
     </div>
     <div class="mb-3">
         <label for="status" class="form-label">Status:</label>
-        <input
+        <select
                 type="text"
                 class="form-control"
                 name="status"
                 id="status"
                 placeholder="status"
                 value="${form.status}"
-        />
+        ><option>Select</option>
+            <option value="Renting">Renting</option>
+            <option value="Waiting">Waiting</option>
+        </select>
         <d:forEach items="${bindingResult.getFieldErrors('status')}" var="error">
             <div style="color: black;">
                     ${error.getDefaultMessage()}
@@ -164,13 +168,5 @@
         </d:forEach>
     </div>
 
-    <button type="submit" class="btn btn-primary" id="sButton">Register Tenant</button>
+    <button type="submit" action="/user/editSubmit/{userId}" class="btn btn-primary" id="sButton">Update Tenant</button>
 </form>
-
-
-<footer>
-
-</footer>
-
-</body>
-</html>

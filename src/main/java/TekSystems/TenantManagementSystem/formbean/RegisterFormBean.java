@@ -39,4 +39,6 @@ public class RegisterFormBean {
     @NotBlank(message = "***Confirm password is required.")
     private String confirmPassword;
 
+    @NotBlank(message = "***Status is required.")
+    private String status;
 }

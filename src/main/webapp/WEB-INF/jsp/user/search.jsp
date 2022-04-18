@@ -97,6 +97,8 @@
         <th>Last Name</th>
         <th>Email</th>
         <th>Tel</th>
+        <th>Status</th>
+        <th>Edit</th>
     </tr>
 
     <d:forEach items = "${usersModelKey}" var = "tenant">
@@ -106,6 +108,8 @@
             <td>${tenant.lastName}</td>
             <td>${tenant.email}</td>
             <td>${tenant.contactNumber}</td>
+            <td>${tenant.status}</td>
+            <td><a href="/user/edit/${tenant.id}">Edit</a></td>
 
         </tr>
 
