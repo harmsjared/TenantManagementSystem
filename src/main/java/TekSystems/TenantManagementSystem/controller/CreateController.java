@@ -108,7 +108,7 @@ public class CreateController {
             apartment.setBeds(form.getBeds());
             apartment.setRent(form.getRent());
             apartment.setSquareFeet(form.getSquareFeet());
-            apartment.setCreateDate(new Date());     //could be update date as well!!
+               //could be update date as well!!
 
 
             Apartment newApartment = apartmentDAO.save(apartment);

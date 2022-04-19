@@ -12,6 +12,7 @@ import java.util.*;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "apartment")
 public class Apartment {
@@ -43,8 +44,11 @@ public class Apartment {
     @Column(name = "square_Feet", nullable = true, unique = false)
     private String squareFeet;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate = new Date();
+    private Date createdAt;
+    private Date updatedAt;
+    @PrePersist
+    protected void onCreate() {this.createdAt = new Date();}
+    @PreUpdate
+    protected void onUpdate() {this.updatedAt = new Date();}
 
 }

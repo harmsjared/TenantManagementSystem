@@ -11,6 +11,7 @@ import java.util.*;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "tenant")
 public class Tenant {
@@ -43,7 +44,10 @@ public class Tenant {
     @Column(name = "status", nullable=false, unique = false)
     private String status;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate = new Date();
+    private Date createdAt;
+    private Date updatedAt;
+    @PrePersist
+    protected void onCreate() {this.createdAt = new Date();}
+    @PreUpdate
+    protected void onUpdate() {this.updatedAt = new Date();}
 }

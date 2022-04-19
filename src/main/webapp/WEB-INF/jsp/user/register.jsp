@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="d" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <jsp:include page="../include/header.jsp" />
 
@@ -157,6 +158,7 @@
                 placeholder="status"
                 value="${form.status}"
         />
+
         <d:forEach items="${bindingResult.getFieldErrors('status')}" var="error">
             <div style="color: black;">
                     ${error.getDefaultMessage()}

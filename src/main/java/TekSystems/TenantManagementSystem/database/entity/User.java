@@ -12,6 +12,7 @@ import java.util.Date;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "user")
 public class User {
@@ -36,7 +37,13 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate = new Date();
+    @Column(name = "status", nullable = false)
+    private String status;
+
+    private Date createdAt;
+    private Date updatedAt;
+    @PrePersist
+    protected void onCreate() {this.createdAt = new Date();}
+    @PreUpdate
+    protected void onUpdate() {this.updatedAt = new Date();}
 }

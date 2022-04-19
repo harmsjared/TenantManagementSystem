@@ -106,7 +106,7 @@ public class RegisterController {
             tenant.setPassword(form.getPassword());
             tenant.setContactNumber(form.getContactNumber());
             tenant.setStatus(form.getStatus());
-            tenant.setCreateDate(new Date());     //could be update date as well!!
+//            tenant.setCreateDate(new Date());     //could be update date as well!!
 
 
             Tenant newTenant = tenantDAO.save(tenant);

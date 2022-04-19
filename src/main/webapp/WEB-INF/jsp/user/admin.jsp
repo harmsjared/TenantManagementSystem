@@ -148,6 +148,25 @@
             </div>
         </d:forEach>
     </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status:</label>
+        <select
+                type="text"
+                class="form-control"
+                name="status"
+                id="status"
+                placeholder="status"
+                value="${form.status}"
+        ><option>Select</option>
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+        </select>
+        <d:forEach items="${bindingResult.getFieldErrors('status')}" var="error">
+            <div style="color: black;">
+                    ${error.getDefaultMessage()}
+            </div>
+        </d:forEach>
+    </div>
 
     <button type="submit" class="btn btn-primary" id="sButton">Register Admin</button>
 </form>

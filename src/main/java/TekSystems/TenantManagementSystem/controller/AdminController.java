@@ -93,7 +93,8 @@ public class AdminController {
             user.setLastName(form.getLastName());
             user.setPassword(form.getPassword());
             user.setContactNumber(form.getContactNumber());
-            user.setCreateDate(new Date());     //could be update date as well!!
+            user.setStatus(form.getStatus());
+                //could be update date as well!!
 
             String password = passwordEncoder.encode(form.getPassword());
             user.setPassword(password);
