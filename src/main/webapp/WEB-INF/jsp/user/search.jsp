@@ -73,7 +73,7 @@
                 <td>${tenant.email}</td>
                 <td>${tenant.firstName}</td>
                 <td>${tenant.lastName}</td>
-<%--                <td>Select</td>--%>
+                <td>${tenant.status}</td>
 
             </tr>
 

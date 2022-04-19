@@ -1,11 +1,13 @@
 package TekSystems.TenantManagementSystem.controller;
 
 import TekSystems.TenantManagementSystem.database.dao.TenantDAO;
+import TekSystems.TenantManagementSystem.database.dao.UserRoleDAO;
 import TekSystems.TenantManagementSystem.database.entity.Tenant;
 import TekSystems.TenantManagementSystem.formbean.RegisterFormBean;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -23,10 +25,14 @@ import java.util.List;
 
 @Slf4j
 @Controller
+@PreAuthorize("hasAnyAuthority('USER', 'ADMIN')")
 public class RegisterController {
 
     @Autowired
     private TenantDAO tenantDAO;
+
+    @Autowired
+    private UserRoleDAO userRoleDAO;
 
     @RequestMapping(value = "/user/register", method = RequestMethod.GET)
     public ModelAndView index(@RequestParam(required = false) Long id) throws Exception {
@@ -60,7 +66,6 @@ public class RegisterController {
     public ModelAndView registerSubmit(@Valid RegisterFormBean form, BindingResult bindingResult) throws Exception {
         ModelAndView response = new ModelAndView();
 
-//        int i = 10/0;
 
         if (bindingResult.hasErrors() ) {
             // Hashmap errors = new HashMap();
@@ -85,17 +90,6 @@ public class RegisterController {
             response.setViewName("user/register");
             return response;
         }
-
-        // first thing we want to do here is load the user from the database
-        // using the incoming id on the form
-//        Tenant tenant = tenantDAO.findTenantById(form.getId());
-//
-//        // if user is not null we know it is an edit
-//        if (tenant == null ) {
-//            // now if the user from the database is null then it means we did not
-//            // find the user. Therefore, it is a create.
-//            tenant = new Tenant();
-//        }
 
         try {
 

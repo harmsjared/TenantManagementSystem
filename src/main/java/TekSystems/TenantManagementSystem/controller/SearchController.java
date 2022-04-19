@@ -4,6 +4,7 @@ import TekSystems.TenantManagementSystem.database.dao.ApartmentDAO;
 import TekSystems.TenantManagementSystem.database.dao.TenantDAO;
 import TekSystems.TenantManagementSystem.database.entity.Apartment;
 import TekSystems.TenantManagementSystem.database.entity.Tenant;
+import TekSystems.TenantManagementSystem.logging.Logger;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 
+import java.io.IOException;
 import java.util.List;
+//import java.util.logging.Logger;
 
 @Slf4j
 @Controller
@@ -84,6 +87,13 @@ public class SearchController {
                 String bologna = floorPlan;
                 apartments = apartmentDAO.findApartmentByFloorPlan(bologna);
                 log.info(floorPlan);
+                apartments.forEach((i) -> {
+                    try {
+                        Logger.writeLog(i.getFloorPlan());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
             }
 
             response.addObject("apartmentsModelKey", apartments);

@@ -17,6 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
+import javax.persistence.EntityNotFoundException;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DataJpaTest
@@ -28,7 +31,7 @@ public class UserDAOTest {
 
     @ParameterizedTest
     @Order(1)
-    @ValueSource(longs = {1, 2 ,3, 4, 5})
+    @ValueSource(longs = {1, 2, 3, 4, 5})
     void testUserArray(long arg) {
         User user = User.builder().firstName("Gunner").lastName("Harms").email("gunner@email.com")
                 .password("password").contactNumber("6128675309").status("Waiting").build();
@@ -37,4 +40,57 @@ public class UserDAOTest {
 
         Assertions.assertThat(arg == user.getId());
     }
+
+    @Test
+    @Order(2)
+    @Rollback(value=false)
+    public void saveTenantTest() {
+
+        User user = User.builder().firstName("Neil").lastName("McKenzie").email("neil@email.com")
+                .password("password").contactNumber("9522613457").status("Renting").build();
+
+        userDAO.save(user);
+
+        Assertions.assertThat(user.getId()).isGreaterThan(0);
+    }
+
+    @Test
+    @Order(3)
+    public void getTenantTest() {
+//
+        User user  = userDAO.getById(1L);
+        Assertions.assertThat(user.getId()).isEqualTo(1);
+    }
+
+//    @Test
+//    @Order(3)
+//    public void getListOfTenants() {
+//        List<User> users  = userDAO.findAll();
+//        Assertions.assertThat(users.size()).isGreaterThan(0);
+//    }
+
+    @Test
+    @Order(4)
+    @Rollback(value = false)
+    public void updateUserTest() {
+        User user = userDAO.getById(1L);
+        user.setLastName("Jimmy");
+        Assertions.assertThat(userDAO.getById(1L).getPassword()).isEqualTo(user.getPassword());
+    }
+
+    @Test
+    @Order(5)
+    @Rollback(value = false)
+    public void deleteUserTest() throws EntityNotFoundException {
+
+        User user = userDAO.getById(1L);
+        userDAO.delete(user);
+
+        User tempUser = null;
+        if (!userDAO.findById(user.getId()).isEmpty()) {
+            tempUser = userDAO.findById(user.getId()).get();
+        }
+        Assertions.assertThat(tempUser).isNull();
+    }
+
 }

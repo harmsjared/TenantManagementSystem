@@ -1,5 +1,3 @@
-
-
 function callRandomUserApi() {
     var queryURL = "https://randomuser.me/api/?results=10&nat=us&exc=login";
     $.ajax({

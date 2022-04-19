@@ -69,9 +69,13 @@
 
         <input type="hidden" name="_captcha" value="false">
 
+        <input type="checkbox" value="check"> Check here to subscribe to our newsletter!
+        <br>
+        <br>
 <%--        <button type="submit" class="btn btn-primary" id="jButton" value="/user/contactSubmit">Save</button>--%>
         <button type="submit" class="btn btn-primary" id="sButton">Send</button>
         <br>
+
         <br>
         <div style="color: black">*After pressing the Send button you will be redirected to the homepage. One of our agents will reach out to you within 24 hours. </div>
     </form>

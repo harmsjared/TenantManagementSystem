@@ -150,15 +150,17 @@
     </div>
     <div class="mb-3">
         <label for="status" class="form-label">Status:</label>
-        <input
+        <select
                 type="text"
                 class="form-control"
                 name="status"
                 id="status"
                 placeholder="status"
                 value="${form.status}"
-        />
-
+        ><option>Select</option>
+            <option value="Waiting">Waiting</option>
+            <option value="Renting">Renting</option>
+        </select>
         <d:forEach items="${bindingResult.getFieldErrors('status')}" var="error">
             <div style="color: black;">
                     ${error.getDefaultMessage()}
@@ -175,4 +177,4 @@
 </footer>
 
 </body>
-</html>
+
