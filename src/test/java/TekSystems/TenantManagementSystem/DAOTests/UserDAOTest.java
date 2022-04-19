@@ -76,6 +76,7 @@ public class UserDAOTest {
 
         User tempUser = null;
         if (!userDAO.findById(user.getId()).isEmpty()) {
+            // get is what is used to get the data from the tempUser
             tempUser = userDAO.findById(user.getId()).get();
         }
         Assertions.assertThat(tempUser).isNull();
@@ -83,14 +84,15 @@ public class UserDAOTest {
 
     @ParameterizedTest
     @Order(6)
-    @ValueSource(longs = {1, 2, 3, 4, 5})
-    void testUserArray(long arg) {
+    @ValueSource(longs = {1, 2, 3, 4, 5}) // will plug into test
+    void testUserArray(long arg) { // takes them in as arguments
         User user = User.builder().firstName("Gunner").lastName("Harms").email("gunner@email.com")
                 .password("password").contactNumber("6128675309").status("Waiting").build();
+        // creates a new user
 
-        userDAO.save(user);
+        userDAO.save(user); // save restaurant
 
-        Assertions.assertThat(arg == user.getId());
-    }
+        Assertions.assertThat(arg == user.getId()); // tests that auto ids are incrementing and assigning to the user
+    } // if i had implemented this prior to my delete method, my arguments would start at 2
 
 }
