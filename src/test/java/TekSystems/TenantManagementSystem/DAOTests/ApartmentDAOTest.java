@@ -26,7 +26,7 @@ public class ApartmentDAOTest {
     @Test
     @Order(1)
     @Rollback(value=false)
-    public void saveUserTest() {
+    public void saveApartmentTest() {
 
         Apartment apartment = Apartment.builder().floorPlan("1").baths("1").beds("2")
                 .rent("1200").squareFeet("1000").status("Rented").build();
@@ -38,7 +38,7 @@ public class ApartmentDAOTest {
 
     @Test
     @Order(2)
-    public void getTenantTest() {
+    public void getApartmentTest() {
 //
         Apartment apartment = apartmentDAO.getById(1L);
         Assertions.assertThat(apartment.getId()).isEqualTo(1);

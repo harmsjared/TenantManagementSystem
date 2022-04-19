@@ -29,22 +29,10 @@ public class UserDAOTest {
     @Autowired
     private UserDAO userDAO;
 
-    @ParameterizedTest
-    @Order(1)
-    @ValueSource(longs = {1, 2, 3, 4, 5})
-    void testUserArray(long arg) {
-        User user = User.builder().firstName("Gunner").lastName("Harms").email("gunner@email.com")
-                .password("password").contactNumber("6128675309").status("Waiting").build();
-
-        userDAO.save(user);
-
-        Assertions.assertThat(arg == user.getId());
-    }
-
     @Test
-    @Order(2)
+    @Order(1)
     @Rollback(value=false)
-    public void saveTenantTest() {
+    public void saveUserTest() {
 
         User user = User.builder().firstName("Neil").lastName("McKenzie").email("neil@email.com")
                 .password("password").contactNumber("9522613457").status("Renting").build();
@@ -55,19 +43,19 @@ public class UserDAOTest {
     }
 
     @Test
-    @Order(3)
-    public void getTenantTest() {
+    @Order(2)
+    public void getUserTest() {
 //
         User user  = userDAO.getById(1L);
         Assertions.assertThat(user.getId()).isEqualTo(1);
     }
 
-//    @Test
-//    @Order(3)
-//    public void getListOfTenants() {
-//        List<User> users  = userDAO.findAll();
-//        Assertions.assertThat(users.size()).isGreaterThan(0);
-//    }
+    @Test
+    @Order(3)
+    public void getListOfTenants() {
+        List<User> users  = userDAO.findAll();
+        Assertions.assertThat(users.size()).isGreaterThan(0);
+    }
 
     @Test
     @Order(4)
@@ -91,6 +79,18 @@ public class UserDAOTest {
             tempUser = userDAO.findById(user.getId()).get();
         }
         Assertions.assertThat(tempUser).isNull();
+    }
+
+    @ParameterizedTest
+    @Order(6)
+    @ValueSource(longs = {1, 2, 3, 4, 5})
+    void testUserArray(long arg) {
+        User user = User.builder().firstName("Gunner").lastName("Harms").email("gunner@email.com")
+                .password("password").contactNumber("6128675309").status("Waiting").build();
+
+        userDAO.save(user);
+
+        Assertions.assertThat(arg == user.getId());
     }
 
 }
