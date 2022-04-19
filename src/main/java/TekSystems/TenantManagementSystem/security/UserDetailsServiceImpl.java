@@ -1,4 +1,4 @@
-package TekSystems.TenantManagementSystem;
+package TekSystems.TenantManagementSystem.security;
 
 import TekSystems.TenantManagementSystem.database.dao.UserDAO;
 import TekSystems.TenantManagementSystem.database.dao.UserRoleDAO;
