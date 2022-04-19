@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="d" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="../include/header.jsp" />
 
@@ -51,10 +52,20 @@
     <div class="mb-3">
         <label class="form-label">Email address</label>
         <input type="text" name="username" class="form-control">
+        <d:forEach items="${bindingResult.getFieldErrors('username')}" var="error">
+            <div style="color: black;">
+                    ${error.getDefaultMessage()}
+            </div>
+        </d:forEach>
     </div>
     <div class="mb-3">
         <label class="form-label">Password</label>
         <input type="password" name="password" class="form-control">
+        <d:forEach items="${bindingResult.getFieldErrors('password')}" var="error">
+            <div style="color: black;">
+                    ${error.getDefaultMessage()}
+            </div>
+        </d:forEach>
     </div>
 
     <button type="submit" class="btn btn-primary">Sign In</button>
