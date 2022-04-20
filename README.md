@@ -29,7 +29,7 @@ Click [Here](https://harmsjared.github.io/TenantManagementSystem/) to view the d
 
 
 ## Screenshot
-![Home](/HomepageTMS.png)
+![Home](https://github.com/harmsjared/TenantManagementSystem/blob/master/src/main/webapp/WEB-INF/jsp/HomepageTMS.png)
 ![Contact](/contactpageTMS.png)
 ![Search](https://github.com/harmsjared/TenantManagementSystem/blob/master/src/main/webapp/WEB-INF/jsp/searchTMS.png)
 
