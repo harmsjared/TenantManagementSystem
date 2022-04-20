@@ -13,7 +13,7 @@ creating Apartments, updating Tenant information, updating Apartment information
 
 Click [Here](https://harmsjared.github.io/TenantManagementSystem/) to view the deployed site.
 
-#### Technologies Used
+## Technologies Used
 * JSP/CSS/Javascript
 * [JQuery](https://api.jquery.com/)
 * [mySQL](https://dev.mysql.com/doc/)
