@@ -11,7 +11,7 @@ Tenant Management System is an application designed for landlords, housing compa
 Featuring an eye-catching style, ease of use, and simple workflow, an Administrator is able to perform simple tasks involved with registering Tenants,
 creating Apartments, updating Tenant information, updating Apartment information, deleting Tenants and Apartments, and assigning Tenants to and existing Apartments.
 
-Click [Here](https://harmsjared.github.io/TenantManagementSystem/) to view the deployed site.
+Click [Here](https://harmsjared.github.io/TenantManagementSystem/index.jsp) to view the deployed site.
 
 ## Technologies Used
 * JSP/CSS/Javascript
