@@ -1,7 +1,7 @@
 # Tenant Management System
 #### Table of Contents
 * [Description](#Description)
-* [Technologies Used](#Technologies Used)
+* [Technologies](#Technologies)
 * [Screenshot](#Screenshot)
 * [Challenges](#Challenges)
 * [License](#License)
