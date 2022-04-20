@@ -29,9 +29,9 @@ Click [Here](https://harmsjared.github.io/TenantManagementSystem/) to view the d
 
 
 ## Screenshot
-![Home](HomepageTMS.png)
-![Contact](contactpageTMS.png)
-![Search](searchTMS.png)
+![Home](/HomepageTMS.png)
+![Contact](/contactpageTMS.png)
+![Search](/searchTMS.png)
 
 ## License
 [License](/Users/Harmsy/Downloads/TenantManagementSystem/LICENSE)
