@@ -86,14 +86,15 @@ public class SearchController {
             if (!floorPlan.isEmpty()) {
                 String bologna = floorPlan;
                 apartments = apartmentDAO.findApartmentByFloorPlan(bologna);
-                log.info(floorPlan);
-                apartments.forEach((i) -> {
-                    try {
-                        Logger.writeLog(i.getFloorPlan());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
+                log.info(String.valueOf(apartments));
+//                log.info(floorPlan);
+//                apartments.forEach((i) -> {
+//                    try {
+//                        Logger.writeLog(i.getFloorPlan());
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                });
             }
 
             response.addObject("apartmentsModelKey", apartments);

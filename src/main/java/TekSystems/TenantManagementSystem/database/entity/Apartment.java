@@ -24,6 +24,7 @@ public class Apartment {
     private Long id;
 
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "apartment")
+    @ToString.Exclude
     private List<Assignment> assignments;
 
     @Column(name = "status", nullable = true, unique = false)
