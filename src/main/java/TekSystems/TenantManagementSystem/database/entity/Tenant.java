@@ -1,7 +1,6 @@
 package TekSystems.TenantManagementSystem.database.entity;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.*;
 
@@ -15,8 +14,6 @@ import java.util.*;
 @Entity
 @Table(name = "tenant")
 public class Tenant {
-
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

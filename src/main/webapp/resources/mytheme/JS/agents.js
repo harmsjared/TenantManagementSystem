@@ -18,11 +18,8 @@ function callRandomUserApi() {
 }
 
 function renderResults(response){
-
     console.log(response.results);
-
     var results = response.results;
-
     for(var i = 0; i < results.length; i++){
         var photo = results[i].picture.medium;
         var firstN = results[i].name.first;
@@ -32,7 +29,6 @@ function renderResults(response){
         var city = results[i].location.city;
         var state = results[i].location.state;
         var phone = results[i].phone;
-
         var rowHTML = `<tr>
         <td><img src="${photo}" alt="Dr.${firstN} ${lastN}"></td>
         <td>${firstN} ${lastN}</td>
@@ -41,10 +37,7 @@ function renderResults(response){
         <td>${state}</td>
         <td>${phone}</td>
       </tr>`
-
         $(".table_content").append(rowHTML);
-
     }
-
 }
 $(document).ready(callRandomUserApi());

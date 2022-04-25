@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
@@ -26,25 +25,18 @@ public class ErrorController {
         return "error/404";
     }
 
-
-    // this method is for all 500 errors for any exception that is thrown
     @ExceptionHandler(Exception.class)
     public ModelAndView handleAllException(HttpServletRequest request, Exception ex) {
         log.error("Error page exception : " + getRequestURL(request), ex);
-
         ModelAndView model = new ModelAndView();
         model.setViewName("error/500");
-
         String stackTrace = getHTMLStackTrace(ExceptionUtils.getStackFrames(ex));
-
         model.addObject("message", ex.getMessage());
         model.addObject("stackTrace", stackTrace);
         model.addObject("requestUrl", getRequestURL(request));
-
         if ( ex.getCause() != null ) {
             Throwable root = ExceptionUtils.getRootCause(ex);
             model.addObject("rootcause", root);
-
             String roottrace = getHTMLStackTrace(ExceptionUtils.getStackFrames(ex));
             model.addObject("roottrace", roottrace);
         }
@@ -56,13 +48,11 @@ public class ErrorController {
         if (request.getQueryString() != null) {
             result = result + "?" + request.getQueryString();
         }
-
         return result;
     }
 
     private String getHTMLStackTrace(String[] stack) {
         StringBuffer result = new StringBuffer();
-
         for (String frame : stack) {
             if (frame.contains("teksystems")) {
                 result.append(" &nbsp; &nbsp; &nbsp;" + frame.trim().substring(3) + "<br>\n");
@@ -70,7 +60,6 @@ public class ErrorController {
                 result.append("Caused By: " + frame + "<br>");
             }
         }
-
         return result.toString();
     }
 }

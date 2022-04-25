@@ -118,11 +118,7 @@
 
     <button type="submit" class="btn btn-primary" id="sButton">Create</button>
 </form>
-
-
 <footer>
-
 </footer>
-
 </body>
-</html>
+

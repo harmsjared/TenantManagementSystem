@@ -80,15 +80,9 @@
         <div style="color: black">*After pressing the Send button you will be redirected to the homepage. One of our agents will reach out to you within 24 hours. </div>
     </form>
 
-
-
-
-
-
 </div>
 <footer class="homepage">
 
 </footer>
 
 </body>
-</html>

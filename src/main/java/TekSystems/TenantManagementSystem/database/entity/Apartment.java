@@ -1,10 +1,8 @@
 package TekSystems.TenantManagementSystem.database.entity;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.*;
-
 
 @Getter
 @Setter
@@ -16,7 +14,6 @@ import java.util.*;
 @Entity
 @Table(name = "apartment")
 public class Apartment {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,5 +48,4 @@ public class Apartment {
     protected void onCreate() {this.createdAt = new Date();}
     @PreUpdate
     protected void onUpdate() {this.updatedAt = new Date();}
-
 }

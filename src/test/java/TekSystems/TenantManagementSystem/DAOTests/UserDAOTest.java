@@ -33,19 +33,15 @@ public class UserDAOTest {
     @Order(1)
     @Rollback(value=false)
     public void saveUserTest() {
-
         User user = User.builder().firstName("Neil").lastName("McKenzie").email("neil@email.com")
                 .password("password").contactNumber("9522613457").status("Renting").build();
-
         userDAO.save(user);
-
         Assertions.assertThat(user.getId()).isGreaterThan(0);
     }
 
     @Test
     @Order(2)
     public void getUserTest() {
-//
         User user  = userDAO.getById(1L);
         Assertions.assertThat(user.getId()).isEqualTo(1);
     }
@@ -70,13 +66,10 @@ public class UserDAOTest {
     @Order(5)
     @Rollback(value = false)
     public void deleteUserTest() throws EntityNotFoundException {
-
         User user = userDAO.getById(1L);
         userDAO.delete(user);
-
         User tempUser = null;
         if (!userDAO.findById(user.getId()).isEmpty()) {
-            // get is what is used to get the data from the tempUser
             tempUser = userDAO.findById(user.getId()).get();
         }
         Assertions.assertThat(tempUser).isNull();
@@ -84,15 +77,11 @@ public class UserDAOTest {
 
     @ParameterizedTest
     @Order(6)
-    @ValueSource(longs = {1, 2, 3, 4, 5}) // will plug into test
-    void testUserArray(long arg) { // takes them in as arguments
+    @ValueSource(longs = {1, 2, 3, 4, 5})
+    void testUserArray(long arg) {
         User user = User.builder().firstName("Gunner").lastName("Harms").email("gunner@email.com")
                 .password("password").contactNumber("6128675309").status("Waiting").build();
-        // creates a new user
-
-        userDAO.save(user); // save restaurant
-
-        Assertions.assertThat(arg == user.getId()); // tests that auto ids are incrementing and assigning to the user
-    } // if i had implemented this prior to my delete method, my arguments would start at 2
-
+        userDAO.save(user);
+        Assertions.assertThat(arg == user.getId());
+    }
 }

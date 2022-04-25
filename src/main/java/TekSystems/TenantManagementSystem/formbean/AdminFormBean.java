@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -14,10 +13,6 @@ import javax.validation.constraints.Pattern;
 @ToString
 public class AdminFormBean {
 
-    // the below variables are used to create the formbean for registering a new tenant to the database
-
-    // will be null in the case of create
-    // will be populated with the user id in the case of an edit
     private Long id;
 
     @EmailUnique(message = "***Email already exists in database.")

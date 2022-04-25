@@ -10,8 +10,6 @@ import javax.validation.constraints.*;
 @ToString
 public class CreateFormBean {
 
-    // the below variables are used to create a new apartment on the /user/create page
-
     private Long id;
 
     @NotBlank(message = "Rental status is required.")

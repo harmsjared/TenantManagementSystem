@@ -18,7 +18,6 @@ public class EmailUniqueImpl implements ConstraintValidator<EmailUnique, String>
 
     @Override
     public void initialize(EmailUnique constraintAnnotation) {
-
     }
 
     @Override
@@ -26,9 +25,7 @@ public class EmailUniqueImpl implements ConstraintValidator<EmailUnique, String>
         if (StringUtils.isEmpty(value) ) {
             return true;
         }
-
         User users  = userDAO.findByEmail(value);
-
         return  (users == null);
     }
 }

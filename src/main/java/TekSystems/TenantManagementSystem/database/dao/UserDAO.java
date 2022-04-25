@@ -8,14 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserDAO extends JpaRepository<User, Long> {
 
-//    User findByUserId(@Param("id")Long id);
-
     User findByEmail(@Param("email")String email);
 
     User findByFirstName(@Param("first") String first);
-
-//    void assignTenantToApartment(String email, int apartmentId);
-
-//    @Query(value = "select t from Tenant t where t.firstName = :firstName")
-//    public List<Tenant> getByPassword(@Param("password") String password);
 }

@@ -12,10 +12,6 @@ import javax.validation.constraints.*;
 @ToString
 public class RegisterFormBean {
 
-    // the below variables are used to create the formbean for registering a new tenant to the database
-
-    // will be null in the case of create
-    // will be populated with the user id in the case of an edit
     private Long id;
 
     @EmailUnique(message = "***Email already exists in database.")

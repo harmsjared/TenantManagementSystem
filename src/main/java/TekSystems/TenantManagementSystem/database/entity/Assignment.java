@@ -25,6 +25,4 @@ public class Assignment {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "apartment_id", nullable = false)
     private Apartment apartment;
-
-
 }

@@ -170,11 +170,8 @@
 
     <button type="submit" class="btn btn-primary" id="sButton">Register Tenant</button>
 </form>
-
-
 <footer>
 
 </footer>
-
 </body>
 

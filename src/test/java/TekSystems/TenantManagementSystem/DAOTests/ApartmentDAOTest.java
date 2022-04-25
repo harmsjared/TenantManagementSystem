@@ -27,19 +27,15 @@ public class ApartmentDAOTest {
     @Order(1)
     @Rollback(value=false)
     public void saveApartmentTest() {
-
         Apartment apartment = Apartment.builder().floorPlan("1").baths("1").beds("2")
                 .rent("1200").squareFeet("1000").status("Rented").build();
-
         apartmentDAO.save(apartment);
-
         Assertions.assertThat(apartment.getId()).isGreaterThan(0);
     }
 
     @Test
     @Order(2)
     public void getApartmentTest() {
-//
         Apartment apartment = apartmentDAO.getById(1L);
         Assertions.assertThat(apartment.getId()).isEqualTo(1);
     }
@@ -64,10 +60,8 @@ public class ApartmentDAOTest {
     @Order(5)
     @Rollback(value = false)
     public void deleteApartmentTest() throws EntityNotFoundException {
-
         Apartment apartment = apartmentDAO.getById(1L);
         apartmentDAO.delete(apartment);
-
         Apartment tempApartment = null;
         if (!apartmentDAO.findById(apartment.getId()).isEmpty()) {
             tempApartment = apartmentDAO.findById(apartment.getId()).get();

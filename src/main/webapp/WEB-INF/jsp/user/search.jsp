@@ -49,7 +49,6 @@
         </div>
     </nav>
 </header>
-
 <div id="tenant-container" class="container">
     <h1>Display All Tenants</h1>
 
@@ -145,8 +144,6 @@
                 <td>${apartment.beds}</td>
                 <td>${apartment.rent}</td>
                 <td>${apartment.squareFeet}</td>
-<%--                <td>Select</td>--%>
-
             </tr>
 
         </d:forEach>
@@ -155,15 +152,11 @@
 <br>
 <div id="delete-container" class="container">
     <h1>Delete Tenant</h1>
-
     <form action="/user/delete" method="get" >
         Tenant Id  <input type="text" name="id" id="tenantId" value="${id}">
         <button type="submit" class="btn btn-primary">Delete</button>
-
-
     </form><br>
 </div>
 </body>
 <footer>
-
 </footer>

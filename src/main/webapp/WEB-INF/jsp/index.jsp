@@ -83,9 +83,6 @@
 </div>
 </div>
 <footer class="homepage">
-
 </footer>
-
 </body>
-</html>
 

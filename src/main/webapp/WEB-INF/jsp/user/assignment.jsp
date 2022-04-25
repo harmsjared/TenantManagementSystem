@@ -48,23 +48,52 @@
         </div>
     </nav>
 </header>
-<div class="container">
-<form id="signin-form" action="/user/assignmentSubmit" method="post">
-    <div class="mb-3">
-        <label  class="form-label">Tenant Id:</label>
-        <input
-                type="text"
-                class="form-control"
-                name="t_id"
-                placeholder="Tenant"
-                value="${form.t_id}"
-        />
-        <d:forEach items="${bindingResult.getFieldErrors('t_id')}" var="error">
-            <div style="color: black;">
-                    ${error.getDefaultMessage()}
-            </div>
+
+<br>
+<div id="search-container" class="container">
+    <h1>Assignment Search</h1>
+
+    <form action="/user/assignmentSearch" method="get">
+
+        <button type="submit" class="btn btn-primary">Search</button>
+
+    </form>
+    <br>
+    <table class="table">
+        <tr scope="row">
+            <th>Assignment Id</th>
+            <th>Tenant Info</th>
+            <th>Apartment Info</th>
+        </tr>
+
+        <d:forEach items = "${assignmentModelKey}" var = "assignment">
+            <tr scope="row">
+                <td>${assignment.id}</td>
+                <td>${assignment.tenant}</td>
+                <td>${assignment.apartment}</td>
+            </tr>
+
         </d:forEach>
-    </div>
+    </table>
+</div>
+<br>
+<div class="container">
+    <form id="signin-form" action="/user/assignmentSubmit" method="post">
+        <div class="mb-3">
+            <label  class="form-label">Tenant Id:</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    name="t_id"
+                    placeholder="Tenant"
+                    value="${form.t_id}"
+            />
+            <d:forEach items="${bindingResult.getFieldErrors('t_id')}" var="error">
+                <div style="color: black;">
+                        ${error.getDefaultMessage()}
+                </div>
+            </d:forEach>
+        </div>
         <div class="mb-3">
             <label  class="form-label">Apartment Id:</label>
             <input
@@ -80,15 +109,11 @@
                 </div>
             </d:forEach>
         </div>
-<br>
+        <br>
         <button type="submit" class="btn btn-primary" id="sButton">Assign</button>
 
-</form>
-
+    </form>
 </div>
 </body>
 <footer>
-
-
 </footer>
-</html>

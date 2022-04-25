@@ -1,10 +1,8 @@
 package TekSystems.TenantManagementSystem.database.entity;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.Date;
-
 
 @Getter
 @Setter

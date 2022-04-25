@@ -21,7 +21,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.util.Assert;
-
 import javax.persistence.EntityNotFoundException;
 
 @DataJpaTest
@@ -35,19 +34,15 @@ public class TenantDAOTest {
     @Order(1)
     @Rollback(value=false)
     public void saveTenantTest() {
-
         Tenant tenant = Tenant.builder().firstName("Neil").lastName("McKenzie").email("neil@email.com")
                 .password("password").contactNumber("9522613457").status("Renting").build();
-
         tenantDAO.save(tenant);
-
         Assertions.assertThat(tenant.getId()).isGreaterThan(0);
     }
 
     @Test
     @Order(2)
     public void getTenantTest() {
-//
         Tenant tenant = tenantDAO.getById(1L);
         Assertions.assertThat(tenant.getId()).isEqualTo(1);
     }
@@ -72,15 +67,12 @@ public class TenantDAOTest {
     @Order(5)
     @Rollback(value = false)
     public void deleteTenantTest() throws EntityNotFoundException {
-
         Tenant tenant = tenantDAO.getById(1L);
         tenantDAO.delete(tenant);
-
         Tenant tempTenant = null;
         if (!tenantDAO.findById(tenant.getId()).isEmpty()) {
             tempTenant = tenantDAO.findById(tenant.getId()).get();
         }
         Assertions.assertThat(tempTenant).isNull();
     }
-
 }
