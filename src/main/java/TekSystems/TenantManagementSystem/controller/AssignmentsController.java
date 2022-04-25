@@ -64,6 +64,7 @@ public class AssignmentsController {
             return response;
         } catch (Exception e) {
             System.out.println("Assignment was unable to be executed.");
+            response.setViewName("user/assignment");
             return response;
         }
     }

@@ -3,7 +3,7 @@
 * [Description](#Description)
 * [Technologies](#Technologies)
 * [Screenshot](#Screenshot)
-* [Challenges](#Challenges)
+* [Database](#Database)
 * [License](#License)
 
 ## Description
@@ -32,6 +32,8 @@ Click [Here](https://harmsjared.github.io/TenantManagementSystem/index.jsp) to v
 ![Home](https://github.com/harmsjared/TenantManagementSystem/blob/master/src/main/webapp/WEB-INF/jsp/HomepageTMS.png)
 ![Contact](https://github.com/harmsjared/TenantManagementSystem/blob/master/src/main/webapp/WEB-INF/jsp/contactpageTMS.png)
 ![Search](https://github.com/harmsjared/TenantManagementSystem/blob/master/src/main/webapp/WEB-INF/jsp/searchTMS.png)
+
+## Database
 
 ## License
 [License](/Users/Harmsy/Downloads/TenantManagementSystem/LICENSE)
