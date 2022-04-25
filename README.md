@@ -5,6 +5,7 @@
 * [Screenshot](#Screenshot)
 * [Database](#Database)
 * [License](#License)
+* [Contact](#Contact)
 
 ## Description
 Tenant Management System is an application designed for landlords, housing companies, rental agencies, and the like to quickly and efficiently manage their tenants and properties. 
@@ -39,3 +40,6 @@ Click [Here](https://harmsjared.github.io/TenantManagementSystem/index.jsp) to v
 ## License
 [License](/Users/Harmsy/Downloads/TenantManagementSystem/LICENSE)
 MIT &copy; 2022
+
+## Contact
+Please contact me at [harms.jared.e@gmail.com] with any questions.
