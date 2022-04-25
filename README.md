@@ -42,4 +42,4 @@ Click [Here](https://harmsjared.github.io/TenantManagementSystem/index.jsp) to v
 MIT &copy; 2022
 
 ## Contact
-Please contact me at [harms.jared.e@gmail.com] with any questions.
+Please contact me at [harms.jared.e@gmail.com](harms.jared.e@gmail.com) with any questions.
