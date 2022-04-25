@@ -34,6 +34,7 @@ Click [Here](https://harmsjared.github.io/TenantManagementSystem/index.jsp) to v
 ![Search](https://github.com/harmsjared/TenantManagementSystem/blob/master/src/main/webapp/WEB-INF/jsp/searchTMS.png)
 
 ## Database
+![Database](https://github.com/harmsjared/TenantManagementSystem/blob/master/src/main/webapp/WEB-INF/jsp/EER_Diagram.png?raw=true)
 
 ## License
 [License](/Users/Harmsy/Downloads/TenantManagementSystem/LICENSE)
